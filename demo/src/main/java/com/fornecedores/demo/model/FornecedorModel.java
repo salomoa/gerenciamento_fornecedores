@@ -1,10 +1,10 @@
-package com.fornecedores.demo.models;
+package com.fornecedores.demo.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+
+@Entity
+@Table(name = "tb_fornecedores")
 public class FornecedorModel {
 
     @Id

@@ -1,6 +1,6 @@
 package com.fornecedores.demo.services;
 
-import com.fornecedores.demo.models.FornecedorModel;
+import com.fornecedores.demo.model.FornecedorModel;
 import com.fornecedores.demo.repositories.FornecedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class FornecedorService {
+public class FornecedorServices {
 
     @Autowired
     private FornecedorRepository fornecedorRepository;
