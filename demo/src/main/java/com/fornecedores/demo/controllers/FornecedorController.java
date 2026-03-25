@@ -20,9 +20,9 @@ public class FornecedorController {
     private FornecedorServices fornecedorServices;
 
     @GetMapping
-        public ResponseEntity<List<FornecedorModel> > findAll(){
-        List<FornecedorModel> fornecedores = fornecedorServices.findAll();
-        return ResponseEntity.ok(fornecedorServices.findAll());
+        public ResponseEntity<List<FornecedorModel> > buscarTodosFornecedores(){
+        List<FornecedorModel> fornecedores = fornecedorServices.buscarTodosOsFornecedores();
+        return ResponseEntity.ok(fornecedorServices.buscarTodosOsFornecedores());
     }
 
     @PostMapping
@@ -36,25 +36,21 @@ public class FornecedorController {
         }
 
     @DeleteMapping
-        public ResponseEntity<FornecedorModel> deletar(@RequestParam Long id){
-        fornecedorServices.deletar(id);
+        public ResponseEntity<FornecedorModel> deletarFornecedor(@RequestParam Long id){
+        fornecedorServices.deletarFornecedores(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
-        public Optional<FornecedorModel> buscarId(@PathVariable Long id){
-        return fornecedorServices.buscarPeloId(id);
+        public Optional<FornecedorModel> buscarFornecedorPorId(@PathVariable Long id){
+        return fornecedorServices.buscarFornecedorId(id);
 
     }
 
     @PutMapping("/{id}")
-        public ResponseEntity<FornecedorModel> atualizar(@PathVariable Long id, @RequestBody FornecedorModel fornecedor){
-        FornecedorModel fornecedorModel = fornecedorServices.atualizar(id, fornecedor);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
-                .path("/{id}")
-                .buildAndExpand(fornecedorModel.getId())
-                .toUri();
-        return ResponseEntity.created(uri).body(fornecedorModel);
+        public ResponseEntity<FornecedorModel> atualizarFonecedor(@PathVariable Long id, @RequestBody FornecedorModel fornecedor){
+        FornecedorModel fornecedorModel = fornecedorServices.atualizarFornecedores(id, fornecedor);
+        return ResponseEntity.ok().body(fornecedorModel);
 
     }
 
